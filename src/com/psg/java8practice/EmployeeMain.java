@@ -1,6 +1,7 @@
 package com.psg.java8practice;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -25,10 +26,16 @@ public class EmployeeMain {
 	
 	//	Map<String,Long> calculation = emp.stream().collect(Collectors.groupingBy(Employee::getCity,Collectors.counting()));
 	
-		Map<String, List<Employee>> calulation = emp.stream().collect(Collectors.groupingBy(Employee::getName,Collectors.toList()));		
+	//	Map<String, List<Employee>> calulation = emp.stream().collect(Collectors.groupingBy(Employee::getName,Collectors.toList()));		
 				
-				
-				System.out.println(calulation);
+	//	List<Employee> collect = emp.stream().sorted(Comparator.comparingDouble(Employee::getBalance).reversed()).collect(Collectors.toList());		
+			
+		Employee collect =  emp.stream().sorted(Comparator.comparingDouble(Employee::getBalance).reversed()).findFirst().get();
+		
+		
+		
+		
+		System.out.println(collect);
 		
 	}
 
