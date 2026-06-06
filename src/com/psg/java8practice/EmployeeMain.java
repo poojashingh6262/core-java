@@ -2,6 +2,7 @@ package com.psg.java8practice;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class EmployeeMain {
@@ -16,12 +17,18 @@ public class EmployeeMain {
 				new Employee(109, "Neha", "Kolkata", 47000.6, 26), new Employee(110, "Sneha", "Jaipur", 93000.1, 38),
 				new Employee(111, "Rahul", "Noida", 58000.5, 32), new Employee(112, "Pooja", "Surat", 41000.3, 23),
 				new Employee(113, "Arjun", "Lucknow", 76000.8, 34), new Employee(114, "Meena", "Nagpur", 49000.9, 28),
-				new Employee(115, "Suresh", "Patna", 35000.0, 22));
+				new Employee(115, "Suresh", "Noida", 35000.0, 22));
 
-		List<Employee> collect = emp.stream().filter(abc -> abc.getBalance() >50000).collect(Collectors.toList());
+	//	List<Employee> collect = emp.stream().filter(abc -> abc.getBalance() >50000).collect(Collectors.toList());
 		
-		
-		System.out.println(collect);
+	//	List <Employee> collect = emp.stream().filter(abc -> abc.getBalance() <50000).collect(Collectors.toList());
+	
+	//	Map<String,Long> calculation = emp.stream().collect(Collectors.groupingBy(Employee::getCity,Collectors.counting()));
+	
+		Map<String, List<Employee>> calulation = emp.stream().collect(Collectors.groupingBy(Employee::getName,Collectors.toList()));		
+				
+				
+				System.out.println(calulation);
 		
 	}
 
